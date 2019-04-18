@@ -11,6 +11,27 @@
 		2C38960B22688E33006059D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C38960A22688E33006059D7 /* Assets.xcassets */; };
 		2C38960E22688E33006059D7 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C38960C22688E33006059D7 /* MainMenu.xib */; };
 		2C38961A22688E33006059D7 /* MetalPBRDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C38961922688E33006059D7 /* MetalPBRDemoTests.swift */; };
+		2C38962A2268911D006059D7 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3896272268911D006059D7 /* Matrix.swift */; };
+		2C38962B2268911D006059D7 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3896282268911D006059D7 /* Renderer.swift */; };
+		2C38966722689490006059D7 /* FBXSceneFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C38965E22689490006059D7 /* FBXSceneFramework.framework */; };
+		2C38966E22689490006059D7 /* FBXSceneFrameworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C38966D22689490006059D7 /* FBXSceneFrameworkTests.m */; };
+		2C38967022689490006059D7 /* FBXSceneFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C38966022689490006059D7 /* FBXSceneFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2C38967322689490006059D7 /* FBXSceneFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C38965E22689490006059D7 /* FBXSceneFramework.framework */; };
+		2C38967422689490006059D7 /* FBXSceneFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2C38965E22689490006059D7 /* FBXSceneFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2C389680226894AD006059D7 /* Deformation.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C38967B226894AD006059D7 /* Deformation.h */; };
+		2C389681226894AD006059D7 /* FBXScene.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C38967C226894AD006059D7 /* FBXScene.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2C389682226894AD006059D7 /* Matrix.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C38967D226894AD006059D7 /* Matrix.h */; };
+		2C389683226894AD006059D7 /* Scene.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C38967E226894AD006059D7 /* Scene.h */; };
+		2C389684226894AD006059D7 /* FBXScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2C38967F226894AD006059D7 /* FBXScene.mm */; };
+		2C3896862268A020006059D7 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C3896852268A020006059D7 /* Scene.cpp */; };
+		2C38968B2268A269006059D7 /* targa.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C3896872268A269006059D7 /* targa.h */; };
+		2C38968C2268A269006059D7 /* targa.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 2C3896882268A269006059D7 /* targa.cxx */; };
+		2C38968D2268A269006059D7 /* TGAFile.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2C3896892268A269006059D7 /* TGAFile.mm */; };
+		2C38968E2268A269006059D7 /* TGAFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C38968A2268A269006059D7 /* TGAFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2C3896902268A499006059D7 /* Library.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2C38968F2268A499006059D7 /* Library.metal */; };
+		2C3896972268AAE5006059D7 /* libfbxsdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3896962268AAE5006059D7 /* libfbxsdk.a */; };
+		2C3896992268AB6D006059D7 /* Matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C3896982268AB6D006059D7 /* Matrix.cpp */; };
+		2C38969B2268ABDC006059D7 /* Deformation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C38969A2268ABDC006059D7 /* Deformation.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -21,7 +42,42 @@
 			remoteGlobalIDString = 2C38960422688E32006059D7;
 			remoteInfo = MetalPBRDemo;
 		};
+		2C38966822689490006059D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2C3895FD22688E32006059D7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2C38965D22689490006059D7;
+			remoteInfo = FBXSceneFramework;
+		};
+		2C38966A22689490006059D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2C3895FD22688E32006059D7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2C38960422688E32006059D7;
+			remoteInfo = MetalPBRDemo;
+		};
+		2C38967122689490006059D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2C3895FD22688E32006059D7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2C38965D22689490006059D7;
+			remoteInfo = FBXSceneFramework;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2C38964B22689249006059D7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2C38967422689490006059D7 /* FBXSceneFramework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2C38960522688E32006059D7 /* MetalPBRDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetalPBRDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -33,6 +89,30 @@
 		2C38961522688E33006059D7 /* MetalPBRDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MetalPBRDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C38961922688E33006059D7 /* MetalPBRDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalPBRDemoTests.swift; sourceTree = "<group>"; };
 		2C38961B22688E33006059D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C3896262268911D006059D7 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		2C3896272268911D006059D7 /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
+		2C3896282268911D006059D7 /* Renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		2C38965E22689490006059D7 /* FBXSceneFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FBXSceneFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C38966022689490006059D7 /* FBXSceneFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBXSceneFramework.h; sourceTree = "<group>"; };
+		2C38966122689490006059D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C38966622689490006059D7 /* FBXSceneFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FBXSceneFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C38966D22689490006059D7 /* FBXSceneFrameworkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBXSceneFrameworkTests.m; sourceTree = "<group>"; };
+		2C38966F22689490006059D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C38967B226894AD006059D7 /* Deformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Deformation.h; sourceTree = "<group>"; };
+		2C38967C226894AD006059D7 /* FBXScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBXScene.h; sourceTree = "<group>"; };
+		2C38967D226894AD006059D7 /* Matrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrix.h; sourceTree = "<group>"; };
+		2C38967E226894AD006059D7 /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
+		2C38967F226894AD006059D7 /* FBXScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FBXScene.mm; sourceTree = "<group>"; };
+		2C3896852268A020006059D7 /* Scene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
+		2C3896872268A269006059D7 /* targa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = targa.h; sourceTree = "<group>"; };
+		2C3896882268A269006059D7 /* targa.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = targa.cxx; sourceTree = "<group>"; };
+		2C3896892268A269006059D7 /* TGAFile.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TGAFile.mm; sourceTree = "<group>"; };
+		2C38968A2268A269006059D7 /* TGAFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGAFile.h; sourceTree = "<group>"; };
+		2C38968F2268A499006059D7 /* Library.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Library.metal; sourceTree = "<group>"; };
+		2C3896912268A698006059D7 /* MetalPBRDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MetalPBRDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		2C3896962268AAE5006059D7 /* libfbxsdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libfbxsdk.a; sourceTree = "<group>"; };
+		2C3896982268AB6D006059D7 /* Matrix.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Matrix.cpp; sourceTree = "<group>"; };
+		2C38969A2268ABDC006059D7 /* Deformation.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Deformation.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C38967322689490006059D7 /* FBXSceneFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +128,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C38965B22689490006059D7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C3896972268AAE5006059D7 /* libfbxsdk.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C38966322689490006059D7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C38966722689490006059D7 /* FBXSceneFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,7 +155,10 @@
 			children = (
 				2C38960722688E32006059D7 /* MetalPBRDemo */,
 				2C38961822688E33006059D7 /* MetalPBRDemoTests */,
+				2C38965F22689490006059D7 /* FBXSceneFramework */,
+				2C38966C22689490006059D7 /* FBXSceneFrameworkTests */,
 				2C38960622688E32006059D7 /* Products */,
+				2C3896952268AAE5006059D7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +167,8 @@
 			children = (
 				2C38960522688E32006059D7 /* MetalPBRDemo.app */,
 				2C38961522688E33006059D7 /* MetalPBRDemoTests.xctest */,
+				2C38965E22689490006059D7 /* FBXSceneFramework.framework */,
+				2C38966622689490006059D7 /* FBXSceneFrameworkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -76,9 +178,12 @@
 			children = (
 				2C38960822688E32006059D7 /* AppDelegate.swift */,
 				2C38960A22688E33006059D7 /* Assets.xcassets */,
-				2C38960C22688E33006059D7 /* MainMenu.xib */,
 				2C38960F22688E33006059D7 /* Info.plist */,
+				2C38968F2268A499006059D7 /* Library.metal */,
+				2C38960C22688E33006059D7 /* MainMenu.xib */,
+				2C3896912268A698006059D7 /* MetalPBRDemo-Bridging-Header.h */,
 				2C38961022688E33006059D7 /* MetalPBRDemo.entitlements */,
+				2C3896242268911D006059D7 /* Rendering */,
 			);
 			path = MetalPBRDemo;
 			sourceTree = "<group>";
@@ -92,7 +197,72 @@
 			path = MetalPBRDemoTests;
 			sourceTree = "<group>";
 		};
+		2C3896242268911D006059D7 /* Rendering */ = {
+			isa = PBXGroup;
+			children = (
+				2C3896262268911D006059D7 /* Common.h */,
+				2C3896272268911D006059D7 /* Matrix.swift */,
+				2C3896282268911D006059D7 /* Renderer.swift */,
+			);
+			path = Rendering;
+			sourceTree = "<group>";
+		};
+		2C38965F22689490006059D7 /* FBXSceneFramework */ = {
+			isa = PBXGroup;
+			children = (
+				2C38969A2268ABDC006059D7 /* Deformation.cpp */,
+				2C38967B226894AD006059D7 /* Deformation.h */,
+				2C38967C226894AD006059D7 /* FBXScene.h */,
+				2C38967F226894AD006059D7 /* FBXScene.mm */,
+				2C38966022689490006059D7 /* FBXSceneFramework.h */,
+				2C38966122689490006059D7 /* Info.plist */,
+				2C3896982268AB6D006059D7 /* Matrix.cpp */,
+				2C38967D226894AD006059D7 /* Matrix.h */,
+				2C3896852268A020006059D7 /* Scene.cpp */,
+				2C38967E226894AD006059D7 /* Scene.h */,
+				2C3896882268A269006059D7 /* targa.cxx */,
+				2C3896872268A269006059D7 /* targa.h */,
+				2C38968A2268A269006059D7 /* TGAFile.h */,
+				2C3896892268A269006059D7 /* TGAFile.mm */,
+			);
+			path = FBXSceneFramework;
+			sourceTree = "<group>";
+		};
+		2C38966C22689490006059D7 /* FBXSceneFrameworkTests */ = {
+			isa = PBXGroup;
+			children = (
+				2C38966D22689490006059D7 /* FBXSceneFrameworkTests.m */,
+				2C38966F22689490006059D7 /* Info.plist */,
+			);
+			path = FBXSceneFrameworkTests;
+			sourceTree = "<group>";
+		};
+		2C3896952268AAE5006059D7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2C3896962268AAE5006059D7 /* libfbxsdk.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		2C38965922689490006059D7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C38968B2268A269006059D7 /* targa.h in Headers */,
+				2C38967022689490006059D7 /* FBXSceneFramework.h in Headers */,
+				2C38968E2268A269006059D7 /* TGAFile.h in Headers */,
+				2C389681226894AD006059D7 /* FBXScene.h in Headers */,
+				2C389680226894AD006059D7 /* Deformation.h in Headers */,
+				2C389682226894AD006059D7 /* Matrix.h in Headers */,
+				2C389683226894AD006059D7 /* Scene.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		2C38960422688E32006059D7 /* MetalPBRDemo */ = {
@@ -102,10 +272,12 @@
 				2C38960122688E32006059D7 /* Sources */,
 				2C38960222688E32006059D7 /* Frameworks */,
 				2C38960322688E32006059D7 /* Resources */,
+				2C38964B22689249006059D7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				2C38967222689490006059D7 /* PBXTargetDependency */,
 			);
 			name = MetalPBRDemo;
 			productName = MetalPBRDemo;
@@ -130,6 +302,43 @@
 			productReference = 2C38961522688E33006059D7 /* MetalPBRDemoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		2C38965D22689490006059D7 /* FBXSceneFramework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C38967522689490006059D7 /* Build configuration list for PBXNativeTarget "FBXSceneFramework" */;
+			buildPhases = (
+				2C38965922689490006059D7 /* Headers */,
+				2C38965A22689490006059D7 /* Sources */,
+				2C38965B22689490006059D7 /* Frameworks */,
+				2C38965C22689490006059D7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FBXSceneFramework;
+			productName = FBXSceneFramework;
+			productReference = 2C38965E22689490006059D7 /* FBXSceneFramework.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		2C38966522689490006059D7 /* FBXSceneFrameworkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C38967822689490006059D7 /* Build configuration list for PBXNativeTarget "FBXSceneFrameworkTests" */;
+			buildPhases = (
+				2C38966222689490006059D7 /* Sources */,
+				2C38966322689490006059D7 /* Frameworks */,
+				2C38966422689490006059D7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2C38966922689490006059D7 /* PBXTargetDependency */,
+				2C38966B22689490006059D7 /* PBXTargetDependency */,
+			);
+			name = FBXSceneFrameworkTests;
+			productName = FBXSceneFrameworkTests;
+			productReference = 2C38966622689490006059D7 /* FBXSceneFrameworkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -142,8 +351,21 @@
 				TargetAttributes = {
 					2C38960422688E32006059D7 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
 					};
 					2C38961422688E33006059D7 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 2C38960422688E32006059D7;
+					};
+					2C38965D22689490006059D7 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					2C38966522689490006059D7 = {
 						CreatedOnToolsVersion = 10.1;
 						TestTargetID = 2C38960422688E32006059D7;
 					};
@@ -164,6 +386,8 @@
 			targets = (
 				2C38960422688E32006059D7 /* MetalPBRDemo */,
 				2C38961422688E33006059D7 /* MetalPBRDemoTests */,
+				2C38965D22689490006059D7 /* FBXSceneFramework */,
+				2C38966522689490006059D7 /* FBXSceneFrameworkTests */,
 			);
 		};
 /* End PBXProject section */
@@ -185,6 +409,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2C38965C22689490006059D7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C38966422689490006059D7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -192,7 +430,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C38962B2268911D006059D7 /* Renderer.swift in Sources */,
 				2C38960922688E32006059D7 /* AppDelegate.swift in Sources */,
+				2C38962A2268911D006059D7 /* Matrix.swift in Sources */,
+				2C3896902268A499006059D7 /* Library.metal in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +445,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2C38965A22689490006059D7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C3896862268A020006059D7 /* Scene.cpp in Sources */,
+				2C389684226894AD006059D7 /* FBXScene.mm in Sources */,
+				2C38968D2268A269006059D7 /* TGAFile.mm in Sources */,
+				2C38968C2268A269006059D7 /* targa.cxx in Sources */,
+				2C38969B2268ABDC006059D7 /* Deformation.cpp in Sources */,
+				2C3896992268AB6D006059D7 /* Matrix.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C38966222689490006059D7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C38966E22689490006059D7 /* FBXSceneFrameworkTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -211,6 +473,21 @@
 			isa = PBXTargetDependency;
 			target = 2C38960422688E32006059D7 /* MetalPBRDemo */;
 			targetProxy = 2C38961622688E33006059D7 /* PBXContainerItemProxy */;
+		};
+		2C38966922689490006059D7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2C38965D22689490006059D7 /* FBXSceneFramework */;
+			targetProxy = 2C38966822689490006059D7 /* PBXContainerItemProxy */;
+		};
+		2C38966B22689490006059D7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2C38960422688E32006059D7 /* MetalPBRDemo */;
+			targetProxy = 2C38966A22689490006059D7 /* PBXContainerItemProxy */;
+		};
+		2C38967222689490006059D7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2C38965D22689490006059D7 /* FBXSceneFramework */;
+			targetProxy = 2C38967122689490006059D7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -345,7 +622,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = MetalPBRDemo/MetalPBRDemo.entitlements;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = G38VA7FQQ2;
@@ -356,6 +633,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lunarkey.MetalPBRDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MetalPBRDemo/MetalPBRDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
@@ -364,7 +643,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = MetalPBRDemo/MetalPBRDemo.entitlements;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = G38VA7FQQ2;
@@ -375,6 +654,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lunarkey.MetalPBRDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MetalPBRDemo/MetalPBRDemo-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
@@ -421,6 +701,110 @@
 			};
 			name = Release;
 		};
+		2C38967622689490006059D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = G38VA7FQQ2;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				HEADER_SEARCH_PATHS = "/Applications/Autodesk/FBX\\ SDK/2019.0/include";
+				INFOPLIST_FILE = FBXSceneFramework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lunarkey.FBXSceneFramework;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		2C38967722689490006059D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = G38VA7FQQ2;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				HEADER_SEARCH_PATHS = "/Applications/Autodesk/FBX\\ SDK/2019.0/include";
+				INFOPLIST_FILE = FBXSceneFramework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lunarkey.FBXSceneFramework;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		2C38967922689490006059D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = G38VA7FQQ2;
+				INFOPLIST_FILE = FBXSceneFrameworkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lunarkey.FBXSceneFrameworkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MetalPBRDemo.app/Contents/MacOS/MetalPBRDemo";
+			};
+			name = Debug;
+		};
+		2C38967A22689490006059D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = G38VA7FQQ2;
+				INFOPLIST_FILE = FBXSceneFrameworkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lunarkey.FBXSceneFrameworkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MetalPBRDemo.app/Contents/MacOS/MetalPBRDemo";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -447,6 +831,24 @@
 			buildConfigurations = (
 				2C38962222688E33006059D7 /* Debug */,
 				2C38962322688E33006059D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2C38967522689490006059D7 /* Build configuration list for PBXNativeTarget "FBXSceneFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C38967622689490006059D7 /* Debug */,
+				2C38967722689490006059D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2C38967822689490006059D7 /* Build configuration list for PBXNativeTarget "FBXSceneFrameworkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C38967922689490006059D7 /* Debug */,
+				2C38967A22689490006059D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
