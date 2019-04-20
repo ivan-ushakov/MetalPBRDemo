@@ -20,8 +20,10 @@
 #include "Deformation.h"
 
 struct SimpleMesh {
-    std::vector<Vertex> vertices;
-    std::vector<uint32_t> indices;
+    Vertex *vertexArray;
+    size_t vertexCount;
+    uint32_t *indexArray;
+    size_t indexCount;
     std::string albedoTexture;
     simd_float4x4 position;
     simd_float3 maxBounds;
@@ -35,6 +37,8 @@ public:
     Scene();
     
     void load(const std::string &);
+    
+    void prepareIndexBuffers();
     
     void onTimerClick();
     

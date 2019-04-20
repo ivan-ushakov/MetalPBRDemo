@@ -43,17 +43,13 @@ class Renderer {
             fatalError()
         }
         
+        do {
+            try scene.createBuffers(device)
+        } catch {
+            fatalError()
+        }
+        
         for i in 0..<scene.getMeshCount() {
-            let b1 = scene.getVertexData(i)
-            guard let vertexBuffer = device.makeBuffer(length: b1.size, options: .storageModeShared) else {
-                fatalError()
-            }
-            
-            let b2 = self.scene.getIndexData(i)
-            guard let indexBuffer = device.makeBuffer(length: b2.size, options: .storageModeShared) else {
-                fatalError()
-            }
-            
             guard let uniformBuffer = device.makeBuffer(length: MemoryLayout<Uniforms>.size, options: .storageModeShared) else {
                 fatalError()
             }
@@ -77,9 +73,7 @@ class Renderer {
                 let normalUrl = path.appendingPathComponent(name.replacingOccurrences(of: "BaseColor", with: "Normal"))
                 let normalTexture = try loadTGATexture(device: device, path: normalUrl.path)
                 
-                nodes.append(SceneNode(vertexBuffer: vertexBuffer,
-                                       indexCount: scene.getIndexCount(i),
-                                       indexBuffer: indexBuffer,
+                nodes.append(SceneNode(indexCount: scene.getIndexCount(i),
                                        albedoTexture: albedoTexture,
                                        metallicTexture: metallicTexture,
                                        roughnessTexture: roughnessTexture,
@@ -213,14 +207,6 @@ class Renderer {
         
         scene.render()
         
-        for i in 0..<scene.getMeshCount() {
-            let b1 = scene.getVertexData(i)
-            self.nodes[i].vertexBuffer.contents().copyMemory(from: b1.address, byteCount: b1.size)
-            
-            let b2 = scene.getIndexData(i)
-            self.nodes[i].indexBuffer.contents().copyMemory(from: b2.address, byteCount: b2.size)
-        }
-        
         let eyePosition = simd_float3(0.0, 2.0, 5.0)
         
         let cameraRotationRadians = Float(frameNumber) * 0.0025
@@ -241,7 +227,7 @@ class Renderer {
             p.pointee.model_matrix = scene.getTransformation(i)
             p.pointee.camera_position = eyePosition
             
-            encoder.setVertexBuffer(node.vertexBuffer, offset: 0, index: 0)
+            encoder.setVertexBuffer(scene.getVertexBuffer(i), offset: 0, index: 0)
             encoder.setVertexBuffer(node.uniformBuffer, offset: 0, index: 1)
             
             encoder.setFragmentBuffer(node.lightBuffer, offset: 0, index: 0)
@@ -255,7 +241,7 @@ class Renderer {
             encoder.drawIndexedPrimitives(type: .triangle,
                                           indexCount: node.indexCount,
                                           indexType: .uint32,
-                                          indexBuffer: node.indexBuffer,
+                                          indexBuffer: scene.getIndexBuffer(i),
                                           indexBufferOffset: 0)
         }
     }
@@ -316,9 +302,7 @@ class Renderer {
 }
 
 private struct SceneNode {
-    var vertexBuffer: MTLBuffer
     var indexCount: Int
-    var indexBuffer: MTLBuffer
     var albedoTexture: MTLTexture
     var metallicTexture: MTLTexture
     var roughnessTexture: MTLTexture

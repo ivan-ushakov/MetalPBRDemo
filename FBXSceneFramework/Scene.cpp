@@ -88,16 +88,9 @@ void Scene::loadCacheRecursive(FbxNode *node) {
             mesh_.emplace_back(std::make_unique<SimpleMesh>());
             
             auto &m = mesh_.back();
-            m->vertices.resize(mesh->GetControlPointsCount());
             
-            m->indices.resize(3 * mesh->GetPolygonCount());
-            size_t index = 0;
-            const int polygonCount = mesh->GetPolygonCount();
-            for (int polygonIndex = 0; polygonIndex < polygonCount; polygonIndex++) {
-                for (int verticeIndex = 0; verticeIndex < 3; verticeIndex++) {
-                    m->indices[index++] = mesh->GetPolygonVertex(polygonIndex, verticeIndex);
-                }
-            }
+            m->vertexCount = mesh->GetControlPointsCount();
+            m->indexCount = 3 * mesh->GetPolygonCount();
             
             FbxLayerElementArrayTemplate<int> *materialIndice = &mesh->GetElementMaterial()->GetIndexArray();
             
@@ -207,10 +200,11 @@ void Scene::drawMesh(FbxNode *node, FbxTime &time, FbxAMatrix &globalPosition) {
     }};
     
     const int polygonCount = mesh->GetPolygonCount();
+    size_t indexArrayPosition = 0;
     for (int polygonIndex = 0; polygonIndex < polygonCount; polygonIndex++) {
         for (int verticeIndex = 0; verticeIndex < 3; verticeIndex++) {
             const int controlPointIndex = mesh->GetPolygonVertex(polygonIndex, verticeIndex);
-            Vertex &v = m->vertices[controlPointIndex];
+            Vertex &v = m->vertexArray[controlPointIndex];
             
             const FbxVector4 &p = vertexArray[controlPointIndex];
             v.position = simd::float3 {
@@ -242,6 +236,8 @@ void Scene::drawMesh(FbxNode *node, FbxTime &time, FbxAMatrix &globalPosition) {
                 static_cast<float>(normal[1]),
                 static_cast<float>(normal[2])
             };
+            
+            m->indexArray[indexArrayPosition++] = mesh->GetPolygonVertex(polygonIndex, verticeIndex);
         }
     }
 }

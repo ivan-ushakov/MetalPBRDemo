@@ -8,18 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-#import <MetalKit/MetalKit.h>
+#import <Metal/Metal.h>
+#import <simd/simd.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
-typedef struct {
-    const void *address;
-    size_t size;
-} FBXBuffer;
 
 @interface FBXScene : NSObject
 
 - (BOOL)load:(NSString *)path error:(NSError * _Nullable * _Nullable)error;
+
+- (BOOL)createBuffers:(id <MTLDevice>)device error:(NSError * _Nullable * _Nullable)error;
 
 - (void)render;
 
@@ -29,9 +27,9 @@ typedef struct {
 
 - (simd_float4x4)getTransformation:(size_t)index;
 
-- (FBXBuffer)getVertexData:(size_t)index;
+- (id <MTLBuffer>)getVertexBuffer:(size_t)index;
 
-- (FBXBuffer)getIndexData:(size_t)index;
+- (id <MTLBuffer>)getIndexBuffer:(size_t)index;
 
 - (NSString *)getAlbedoTexturePath:(size_t)index;
 

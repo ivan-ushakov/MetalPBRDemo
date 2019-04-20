@@ -12,6 +12,8 @@
 
 @implementation FBXScene
 {
+    NSMutableArray<id <MTLBuffer>> *_vertexBuffers;
+    NSMutableArray<id <MTLBuffer>> *_indexBuffers;
     Scene _scene;
 }
 
@@ -21,6 +23,35 @@
     } catch (std::exception &e) {
         return NO;
     }
+    return YES;
+}
+
+- (BOOL)createBuffers:(id <MTLDevice>)device error:(NSError * _Nullable * _Nullable)error {
+    _vertexBuffers = [NSMutableArray arrayWithCapacity:_scene.mesh_.size()];
+    _indexBuffers = [NSMutableArray arrayWithCapacity:_scene.mesh_.size()];
+    
+    for (auto &&m : _scene.mesh_) {
+        NSUInteger l1 = m->vertexCount * sizeof(Vertex);
+        id <MTLBuffer> vertexBuffer = [device newBufferWithLength:l1 options:MTLResourceStorageModeShared];
+        if (vertexBuffer == nil) {
+            *error = nil;
+            return NO;
+        }
+        
+        [_vertexBuffers addObject:vertexBuffer];
+        m->vertexArray = (Vertex *)vertexBuffer.contents;
+        
+        NSUInteger l2 = m->indexCount * sizeof(uint32_t);
+        id <MTLBuffer> indexBuffer = [device newBufferWithLength:l2 options:MTLResourceStorageModeShared];
+        if (indexBuffer == nil) {
+            *error = nil;
+            return NO;
+        }
+        
+        [_indexBuffers addObject:indexBuffer];
+        m->indexArray = (uint32_t *)indexBuffer.contents;
+    }
+    
     return YES;
 }
 
@@ -34,25 +65,19 @@
 }
 
 - (size_t)getIndexCount:(size_t)index {
-    return _scene.mesh_[index]->indices.size();
+    return _scene.mesh_[index]->indexCount;
 }
 
 - (simd_float4x4)getTransformation:(size_t)index {
     return _scene.mesh_[index]->position;
 }
 
-- (FBXBuffer)getVertexData:(size_t)index {
-    FBXBuffer buffer;
-    buffer.address = _scene.mesh_[index]->vertices.data();
-    buffer.size = _scene.mesh_[index]->vertices.size() * sizeof(Vertex);
-    return buffer;
+- (id <MTLBuffer>)getVertexBuffer:(size_t)index {
+    return _vertexBuffers[index];
 }
 
-- (FBXBuffer)getIndexData:(size_t)index {
-    FBXBuffer buffer;
-    buffer.address = _scene.mesh_[index]->indices.data();
-    buffer.size = _scene.mesh_[index]->indices.size() * sizeof(uint32_t);
-    return buffer;
+- (id <MTLBuffer>)getIndexBuffer:(size_t)index {
+    return _indexBuffers[index];
 }
 
 - (NSString *)getAlbedoTexturePath:(size_t)index {
