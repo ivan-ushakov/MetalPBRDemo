@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FBXScene : NSObject
 
+@property (readonly, nonatomic) NSString *path;
+
 - (BOOL)load:(NSString *)path error:(NSError * _Nullable * _Nullable)error;
 
 - (BOOL)createBuffers:(id <MTLDevice>)device error:(NSError * _Nullable * _Nullable)error;
@@ -31,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (id <MTLBuffer>)getIndexBuffer:(size_t)index;
 
-- (NSString *)getAlbedoTexturePath:(size_t)index;
+- (NSString *)getName:(size_t)index;
 
 - (simd_float3)maxBounds:(size_t)index;
 

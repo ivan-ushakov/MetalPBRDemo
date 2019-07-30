@@ -77,7 +77,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 try scene.load(url.path)
                 
                 self.renderer = Renderer(layer: self.contentView.metalLayer, scene: scene)
-                self.renderer?.setupScene()
+                try self.renderer?.setupScene()
                 
                 DispatchQueue.main.async {
                     CVDisplayLinkStart(link)

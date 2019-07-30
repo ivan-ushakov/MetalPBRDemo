@@ -12,7 +12,7 @@
 
 using namespace metal;
 
-constexpr sampler sampler_2d(mip_filter::linear, mag_filter::linear, min_filter::linear);
+constexpr sampler sampler_2d(address::repeat, mip_filter::linear, mag_filter::linear, min_filter::linear);
 
 typedef struct
 {

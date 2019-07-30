@@ -9,6 +9,10 @@
 import MetalKit
 import FBXSceneFramework
 
+enum RendererError: Error {
+    case general
+}
+
 class Renderer {
     
     private let layer: CAMetalLayer
@@ -36,54 +40,30 @@ class Renderer {
         }
     }
     
-    func setupScene() {
+    func setupScene() throws {
         guard let device = layer.device else { return }
         
         guard let lightBuffer = device.makeBuffer(length: MemoryLayout<LightStore>.size, options: .storageModeShared) else {
-            fatalError()
+            throw RendererError.general
         }
         
-        do {
-            try scene.createBuffers(device)
-        } catch {
-            fatalError()
-        }
+        try scene.createBuffers(device)
+        
+        let materialLoader = PBRMaterialLoader()
+        let url = URL(fileURLWithPath: scene.path).deletingLastPathComponent().appendingPathComponent("materials.json")
+        let materials = try materialLoader.load(device: device, path: url)
         
         for i in 0..<scene.getMeshCount() {
             guard let uniformBuffer = device.makeBuffer(length: MemoryLayout<Uniforms>.size, options: .storageModeShared) else {
-                fatalError()
+                throw RendererError.general
             }
             
-            do {
-                let albedoUrl = URL(fileURLWithPath: scene.getAlbedoTexturePath(i))
-                let albedoTexture = try loadTGATexture(device: device, path: albedoUrl.path)
-                
-                let name = albedoUrl.lastPathComponent
-                let path = albedoUrl.deletingLastPathComponent()
-                
-                let metallicUrl = path.appendingPathComponent(name.replacingOccurrences(of: "BaseColor", with: "Metallic"))
-                let metallicTexture = try loadTGATexture(device: device, path: metallicUrl.path)
-                
-                let roughnessUrl = path.appendingPathComponent(name.replacingOccurrences(of: "BaseColor", with: "Roughness"))
-                let roughnessTexture = try loadTGATexture(device: device, path: roughnessUrl.path)
-                
-                let aoUrl = path.appendingPathComponent(name.replacingOccurrences(of: "BaseColor", with: "AO"))
-                let aoTexture = try loadTGATexture(device: device, path: aoUrl.path)
-                
-                let normalUrl = path.appendingPathComponent(name.replacingOccurrences(of: "BaseColor", with: "Normal"))
-                let normalTexture = try loadTGATexture(device: device, path: normalUrl.path)
-                
-                nodes.append(SceneNode(indexCount: scene.getIndexCount(i),
-                                       albedoTexture: albedoTexture,
-                                       metallicTexture: metallicTexture,
-                                       roughnessTexture: roughnessTexture,
-                                       aoTexture: aoTexture,
-                                       normalTexture: normalTexture,
-                                       uniformBuffer: uniformBuffer,
-                                       lightBuffer: lightBuffer))
-            } catch {
-                print("Renderer: \(error)")
-            }
+            nodes.append(SceneNode(
+                indexCount: scene.getIndexCount(i),
+                material: materials[scene.getName(i)],
+                uniformBuffer: uniformBuffer,
+                lightBuffer: lightBuffer)
+            )
         }
     }
     
@@ -209,16 +189,20 @@ class Renderer {
         
         let eyePosition = simd_float3(0.0, 2.0, 5.0)
         
-        let cameraRotationRadians = Float(frameNumber) * 0.0025
-        let cameraRotationAxis = simd_float3(0.0, 1.0, 0.0)
-        let cameraRotationMatrix = matrix_rotation(axis: cameraRotationAxis, angle: cameraRotationRadians)
+        let rotationRadians = Float(frameNumber) * 0.0025
+        let rotationAxis = simd_float3(0.0, 1.0, 0.0)
+        let rotationMatrix = matrix_rotation(axis: rotationAxis, angle: rotationRadians)
         
         let viewMatrix = matrix_look_at_right_hand(eye: eyePosition,
                                                    target: simd_float3(0.0, 2.0, 0.0),
-                                                   up: simd_float3(0.0, 1.0, 0.0)) * cameraRotationMatrix
+                                                   up: simd_float3(0.0, 1.0, 0.0)) * rotationMatrix
         
         for i in 0..<scene.getMeshCount() {
             let node = nodes[i]
+            
+            if node.material == nil {
+                continue
+            }
             
             let p = node.uniformBuffer.contents().bindMemory(to: Uniforms.self, capacity: MemoryLayout<Uniforms>.size)
             
@@ -229,20 +213,17 @@ class Renderer {
             
             encoder.setVertexBuffer(scene.getVertexBuffer(i), offset: 0, index: 0)
             encoder.setVertexBuffer(node.uniformBuffer, offset: 0, index: 1)
-            
             encoder.setFragmentBuffer(node.lightBuffer, offset: 0, index: 0)
             
-            encoder.setFragmentTexture(node.albedoTexture, index: 0)
-            encoder.setFragmentTexture(node.metallicTexture, index: 1)
-            encoder.setFragmentTexture(node.roughnessTexture, index: 2)
-            encoder.setFragmentTexture(node.aoTexture, index: 3)
-            encoder.setFragmentTexture(node.normalTexture, index: 4)
+            node.material?.setTextures(encoder: encoder)
             
-            encoder.drawIndexedPrimitives(type: .triangle,
-                                          indexCount: node.indexCount,
-                                          indexType: .uint32,
-                                          indexBuffer: scene.getIndexBuffer(i),
-                                          indexBufferOffset: 0)
+            encoder.drawIndexedPrimitives(
+                type: .triangle,
+                indexCount: node.indexCount,
+                indexType: .uint32,
+                indexBuffer: scene.getIndexBuffer(i),
+                indexBufferOffset: 0
+            )
         }
     }
     
@@ -277,37 +258,11 @@ class Renderer {
         p.pointee.entry.3.position = simd_float3(maxBounds.x, maxBounds.y, 10.0)
         p.pointee.entry.3.color = color
     }
-    
-    private func loadTGATexture(device: MTLDevice, path: String) throws -> MTLTexture {
-        let file = TGAFile()
-        try file.load(path)
-        
-        let descriptor = MTLTextureDescriptor()
-        descriptor.textureType = .type2D
-        descriptor.pixelFormat = .bgra8Unorm
-        descriptor.width = file.width
-        descriptor.height = file.height
-        descriptor.mipmapLevelCount = 1
-        
-        guard let texture = device.makeTexture(descriptor: descriptor) else {
-            fatalError()
-        }
-        
-        let size = MTLSize(width: file.width, height: file.height, depth: 1)
-        let region = MTLRegion(origin: MTLOriginMake(0, 0, 0), size: size)
-        texture.replace(region: region, mipmapLevel: 0, withBytes: file.data, bytesPerRow: 4 * file.width)
-        
-        return texture
-    }
 }
 
 private struct SceneNode {
     var indexCount: Int
-    var albedoTexture: MTLTexture
-    var metallicTexture: MTLTexture
-    var roughnessTexture: MTLTexture
-    var aoTexture: MTLTexture
-    var normalTexture: MTLTexture
+    var material: Material?
     var uniformBuffer: MTLBuffer
     var lightBuffer: MTLBuffer
 }

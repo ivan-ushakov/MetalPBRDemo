@@ -15,4 +15,3 @@ FOUNDATION_EXPORT double FBXSceneFrameworkVersionNumber;
 FOUNDATION_EXPORT const unsigned char FBXSceneFrameworkVersionString[];
 
 #import <FBXSceneFramework/FBXScene.h>
-#import <FBXSceneFramework/TGAFile.h>

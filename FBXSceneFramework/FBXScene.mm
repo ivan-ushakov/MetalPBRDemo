@@ -19,6 +19,7 @@
 
 - (BOOL)load:(NSString *)path error:(NSError * _Nullable * _Nullable)error {    
     try {
+        _path = path;
         _scene.load(std::string(path.UTF8String));
     } catch (std::exception &e) {
         return NO;
@@ -80,8 +81,8 @@
     return _indexBuffers[index];
 }
 
-- (NSString *)getAlbedoTexturePath:(size_t)index {
-    return [NSString stringWithUTF8String:_scene.mesh_[index]->albedoTexture.c_str()];
+- (NSString *)getName:(size_t)index {
+    return [NSString stringWithUTF8String:_scene.mesh_[index]->name.c_str()];
 }
 
 - (simd_float3)maxBounds:(size_t)index {

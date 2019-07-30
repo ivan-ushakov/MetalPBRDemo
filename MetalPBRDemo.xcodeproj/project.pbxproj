@@ -24,14 +24,11 @@
 		2C389683226894AD006059D7 /* Scene.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C38967E226894AD006059D7 /* Scene.h */; };
 		2C389684226894AD006059D7 /* FBXScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2C38967F226894AD006059D7 /* FBXScene.mm */; };
 		2C3896862268A020006059D7 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C3896852268A020006059D7 /* Scene.cpp */; };
-		2C38968B2268A269006059D7 /* targa.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C3896872268A269006059D7 /* targa.h */; };
-		2C38968C2268A269006059D7 /* targa.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 2C3896882268A269006059D7 /* targa.cxx */; };
-		2C38968D2268A269006059D7 /* TGAFile.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2C3896892268A269006059D7 /* TGAFile.mm */; };
-		2C38968E2268A269006059D7 /* TGAFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C38968A2268A269006059D7 /* TGAFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2C3896902268A499006059D7 /* Library.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2C38968F2268A499006059D7 /* Library.metal */; };
 		2C3896972268AAE5006059D7 /* libfbxsdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3896962268AAE5006059D7 /* libfbxsdk.a */; };
 		2C3896992268AB6D006059D7 /* Matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C3896982268AB6D006059D7 /* Matrix.cpp */; };
 		2C38969B2268ABDC006059D7 /* Deformation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C38969A2268ABDC006059D7 /* Deformation.cpp */; };
+		2C927AB822F0BF7C00611386 /* Material.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C927AB722F0BF7C00611386 /* Material.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,15 +101,12 @@
 		2C38967E226894AD006059D7 /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
 		2C38967F226894AD006059D7 /* FBXScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FBXScene.mm; sourceTree = "<group>"; };
 		2C3896852268A020006059D7 /* Scene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
-		2C3896872268A269006059D7 /* targa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = targa.h; sourceTree = "<group>"; };
-		2C3896882268A269006059D7 /* targa.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = targa.cxx; sourceTree = "<group>"; };
-		2C3896892268A269006059D7 /* TGAFile.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TGAFile.mm; sourceTree = "<group>"; };
-		2C38968A2268A269006059D7 /* TGAFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGAFile.h; sourceTree = "<group>"; };
 		2C38968F2268A499006059D7 /* Library.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Library.metal; sourceTree = "<group>"; };
 		2C3896912268A698006059D7 /* MetalPBRDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MetalPBRDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		2C3896962268AAE5006059D7 /* libfbxsdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libfbxsdk.a; sourceTree = "<group>"; };
 		2C3896982268AB6D006059D7 /* Matrix.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Matrix.cpp; sourceTree = "<group>"; };
 		2C38969A2268ABDC006059D7 /* Deformation.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Deformation.cpp; sourceTree = "<group>"; };
+		2C927AB722F0BF7C00611386 /* Material.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Material.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				2C3896262268911D006059D7 /* Common.h */,
+				2C927AB722F0BF7C00611386 /* Material.swift */,
 				2C3896272268911D006059D7 /* Matrix.swift */,
 				2C3896282268911D006059D7 /* Renderer.swift */,
 			);
@@ -220,10 +215,6 @@
 				2C38967D226894AD006059D7 /* Matrix.h */,
 				2C3896852268A020006059D7 /* Scene.cpp */,
 				2C38967E226894AD006059D7 /* Scene.h */,
-				2C3896882268A269006059D7 /* targa.cxx */,
-				2C3896872268A269006059D7 /* targa.h */,
-				2C38968A2268A269006059D7 /* TGAFile.h */,
-				2C3896892268A269006059D7 /* TGAFile.mm */,
 			);
 			path = FBXSceneFramework;
 			sourceTree = "<group>";
@@ -252,9 +243,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C38968B2268A269006059D7 /* targa.h in Headers */,
 				2C38967022689490006059D7 /* FBXSceneFramework.h in Headers */,
-				2C38968E2268A269006059D7 /* TGAFile.h in Headers */,
 				2C389681226894AD006059D7 /* FBXScene.h in Headers */,
 				2C389680226894AD006059D7 /* Deformation.h in Headers */,
 				2C389682226894AD006059D7 /* Matrix.h in Headers */,
@@ -430,6 +419,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C927AB822F0BF7C00611386 /* Material.swift in Sources */,
 				2C38962B2268911D006059D7 /* Renderer.swift in Sources */,
 				2C38960922688E32006059D7 /* AppDelegate.swift in Sources */,
 				2C38962A2268911D006059D7 /* Matrix.swift in Sources */,
@@ -451,8 +441,6 @@
 			files = (
 				2C3896862268A020006059D7 /* Scene.cpp in Sources */,
 				2C389684226894AD006059D7 /* FBXScene.mm in Sources */,
-				2C38968D2268A269006059D7 /* TGAFile.mm in Sources */,
-				2C38968C2268A269006059D7 /* targa.cxx in Sources */,
 				2C38969B2268ABDC006059D7 /* Deformation.cpp in Sources */,
 				2C3896992268AB6D006059D7 /* Matrix.cpp in Sources */,
 			);

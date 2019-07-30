@@ -84,20 +84,12 @@ void Scene::loadCacheRecursive(FbxNode *node) {
     if (nodeAttribute) {
         if (nodeAttribute->GetAttributeType() == FbxNodeAttribute::eMesh) {
             FbxMesh *mesh = node->GetMesh();
-            
             mesh_.emplace_back(std::make_unique<SimpleMesh>());
             
             auto &m = mesh_.back();
-            
             m->vertexCount = mesh->GetControlPointsCount();
             m->indexCount = 3 * mesh->GetPolygonCount();
-            
-            FbxLayerElementArrayTemplate<int> *materialIndice = &mesh->GetElementMaterial()->GetIndexArray();
-            
-            int materialIndex = materialIndice->GetAt(0);
-            const FbxSurfaceMaterial *material = node->GetMaterial(materialIndex);
-            
-            m->albedoTexture = fbx::getTexture(material, FbxSurfaceMaterial::sDiffuse);
+            m->name = std::string(node->GetName());
             
             mesh->SetUserDataPtr(m.get());
         }

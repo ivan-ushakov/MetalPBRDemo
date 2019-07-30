@@ -24,7 +24,7 @@ struct SimpleMesh {
     size_t vertexCount;
     uint32_t *indexArray;
     size_t indexCount;
-    std::string albedoTexture;
+    std::string name;
     simd_float4x4 position;
     simd_float3 maxBounds;
     simd_float3 minBounds;
